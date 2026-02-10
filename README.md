@@ -69,8 +69,7 @@ Esto permite alternar llamadas a `get_next_line` entre distintos `fd` sin perder
 
 * `man 2 read`
 * `man 3 malloc`
-* Documentación oficial de C
-* Apuntes y debates con otros estudiantes de 42
+* [Manual de C (man pages)](https://man7.org/linux/man-pages/)                                              
 
 ### Uso de IA
 

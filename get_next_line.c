@@ -14,8 +14,20 @@
 
 char	*get_next_line(int fd)
 {
-	static char		*buffer_static;
-	char			*line;
+	static char	*storage;
+	char		buffer[BUFFER_SIZE + 1];
+	size_t		bytes_read;
 
+	while (!ft_strchr(storage, '\n'))
+	{
+		bytes_read = read(fd, buffer, BUFFER_SIZE);
+		if (bytes_read ==0)
+			break
+		if (bytes_read == -1)
+			return (NULL);
+		buffer[bytes_read] = '\n';
+		storage = ft_strjoin(storage, buffer);
+	}
+	storage = NULL;
 	return (line);
 }
