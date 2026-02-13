@@ -6,7 +6,7 @@
 /*   By: raromar <raromar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 13:33:28 by raqroca-          #+#    #+#             */
-/*   Updated: 2026/02/09 13:33:37 by raromar          ###   ########.fr       */
+/*   Updated: 2026/02/13 19:33:35 by raromar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,13 @@
 # endif
 
 char	*get_next_line(int fd);
+char	*extract_line(char *storage);
+char	*update_storage(char *storage);
+
+size_t	ft_strlen(char *s);
+char	*ft_strchr(char *s, char c);
+char	*ft_strdup(char *s);
+char	*init_empty_string(void);
+char	*ft_strjoin(char *s1, char *s2);
 
 #endif

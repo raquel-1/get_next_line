@@ -6,7 +6,7 @@
 /*   By: raromar <raromar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 13:41:23 by raqroca-          #+#    #+#             */
-/*   Updated: 2026/02/09 14:18:14 by raromar          ###   ########.fr       */
+/*   Updated: 2026/02/13 19:32:33 by raromar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,26 @@ char	*ft_strchr(char *s, char c)
 	if (*s == c)
 		return (s);
 	return (NULL);
+}
+
+char	*ft_strdup(char *s)
+{
+	char	*dup;
+	int		i;
+
+	if (!s)
+		return (NULL);
+	dup = malloc(ft_strlen(s) + 1);
+	if (!dup)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		dup[i] = s[i];
+		i++;
+	}
+	dup[i] = '\0';
+	return (dup);
 }
 
 char	*init_empty_string(void)
