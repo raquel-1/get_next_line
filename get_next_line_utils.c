@@ -59,31 +59,21 @@ char	*ft_strdup(char *s)
 	return (dup);
 }
 
-char	*init_empty_string(void)
-{
-	char	*str;
-
-	str = malloc(1);
-	if (!str)
-		return (NULL);
-	str[0] = '\0';
-	return (str);
-}
-
 char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*new;
-	int		i;
-	int		j;
+	size_t	i;
+	size_t	j;
 
-	if (!s2)
-		return (NULL);
 	if (!s1)
 	{
-		s1 = init_empty_string();
+		s1 = malloc(1);
 		if (!s1)
 			return (NULL);
+		s1[0] = '\0';
 	}
+	if (!s2)
+		return (free(s1), NULL);
 	new = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!new)
 		return (free(s1), NULL);
