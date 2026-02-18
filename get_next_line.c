@@ -20,21 +20,21 @@ char	*extract_line(char *storage)
 	i = 0;
 	if (!storage || !storage[0])
 		return (NULL);
-	while (storage[i] && storage[i] != '\n')
+	while (storage[i] && storage[i] != INDICATOR)
 		i++;
-	if (storage[i] == '\n')
+	if (storage[i] == INDICATOR)
 		i++;
 	line = malloc(i + 1);
 	if (!line)
 		return (NULL);
 	i = 0;
-	while (storage[i] && storage[i] != '\n')
+	while (storage[i] && storage[i] != INDICATOR)
 	{
 		line[i] = storage[i];
 		i++;
 	}
-	if (storage[i] == '\n')
-		line[i++] = '\n';
+	if (storage[i] == INDICATOR)
+		line[i++] = INDICATOR;
 	line[i] = '\0';
 	return (line);
 }
@@ -46,7 +46,7 @@ char	*update_storage(char *storage)
 
 	if (!storage)
 		return (NULL);
-	ptr = ft_strchr(storage, '\n');
+	ptr = ft_strchr(storage, INDICATOR);
 	if (!ptr)
 	{
 		free(storage);
@@ -72,7 +72,7 @@ static char	*read_to_storage(int fd, char *storage)
 	if (!buffer)
 		return (NULL);
 	bytes_read = 1;
-	while (!ft_strchr(storage, '\n') && bytes_read != 0)
+	while (!ft_strchr(storage, INDICATOR) && bytes_read != 0)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read == -1)
