@@ -34,9 +34,11 @@ char	*extract_line(char *storage)
 		i++;
 	}
 	if (storage[i] == INDICATOR)
-		line[i++] = INDICATOR;
-	line[i] = '\0';
-	return (line);
+	{
+		line[i] = INDICATOR;
+		i++;
+	}
+	return (line[i] = '\0', line);
 }
 
 char	*update_storage(char *storage)
@@ -114,4 +116,30 @@ char	*get_next_line(int fd)
 	}
 	storage = update_storage(storage);
 	return (line);
+}
+
+#include <fcntl.h>
+#include <stdio.h>
+#include <unistd.h>
+
+int main(void)
+{
+	int		fd;
+	int 	i;
+	char	*str;
+
+	fd = open("test.txt", O_RDONLY);
+	i = 1;
+	while (i)
+	{
+		str = get_next_line(fd);
+		if (str)
+		{
+			printf("[%s]\n", str);
+			free(str);
+		}
+		else
+			i = 0;
+	}
+	close(fd);
 }

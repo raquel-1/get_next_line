@@ -195,7 +195,7 @@ int main(void)
 		str = get_next_line(fd);
 		if (str)
 		{
-			printf("%s", str);
+			printf("[%s]", str);
 			free(str);
 		}
 		else
