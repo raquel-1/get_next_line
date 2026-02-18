@@ -20,7 +20,7 @@
 #  define BUFFER_SIZE 42
 # endif
 
-# define INDICATOR '@'
+# define INDICATOR '\n'
 
 char	*get_next_line(int fd);
 char	*extract_line(char *storage);

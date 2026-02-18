@@ -117,29 +117,3 @@ char	*get_next_line(int fd)
 	storage = update_storage(storage);
 	return (line);
 }
-
-#include <fcntl.h>
-#include <stdio.h>
-#include <unistd.h>
-
-int main(void)
-{
-	int		fd;
-	int 	i;
-	char	*str;
-
-	fd = open("test.txt", O_RDONLY);
-	i = 1;
-	while (i)
-	{
-		str = get_next_line(fd);
-		if (str)
-		{
-			printf("[%s]\n", str);
-			free(str);
-		}
-		else
-			i = 0;
-	}
-	close(fd);
-}
