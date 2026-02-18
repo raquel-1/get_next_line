@@ -188,7 +188,7 @@ int main(void)
 	int 	i;
 	char	*str;
 
-	fd = open("tuta.txt", O_RDONLY);
+	fd = open("test.txt", O_RDONLY);
 	i = 1;
 	while (i)
 	{
@@ -203,6 +203,14 @@ int main(void)
 	}
 	close(fd);
 }
+```
+
+```bash
+cc *.c -D BUFFER_SIZE=10
+```
+
+```bash
+valgrind ./a.out
 ```
 
 ---
